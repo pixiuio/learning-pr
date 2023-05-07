@@ -1,4 +1,4 @@
-name: Publish pixiu image
+name: test push kubernetes images
 
 on:
   push:
