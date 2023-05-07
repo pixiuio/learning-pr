@@ -1,11 +1,11 @@
 name: test push kubernetes images
 
+env:
+  KubernetesVersion: 1.26.4
+
 on:
   pull_request:
     branches: [ master ]
-
-env:
-  KubernetesVersion: 1.26.4
 
 jobs:
   build:
