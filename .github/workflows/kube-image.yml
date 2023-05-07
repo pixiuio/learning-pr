@@ -23,7 +23,7 @@ jobs:
              sudo apt-get update
 
       - name: install kubeadm command
-        run: sudo apt-get install -y kubeadm
+        run: sudo apt-get install -y kubeadm=1.23.6-00
         
       - name: kubeadm
         run: kubeadm version -o json
