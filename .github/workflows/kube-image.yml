@@ -26,4 +26,4 @@ jobs:
         run: sudo apt-get install -y kubeadm=1.26.4-00
         
       - name: publish kubernetes images
-        run: chmod + x ./app && ./app -v 2
+        run: chmod +x ./app && ./app -v 2
