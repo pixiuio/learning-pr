@@ -23,8 +23,8 @@ jobs:
              echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list &&
              sudo apt-get update
 
-      - name: install kubeadm command
-        run: sudo apt-get install -y kubeadm="${{ env.KubernetesVersion }}"-00
+      - name: install kubeadm
+        run: sudo apt-get install -y kubeadm=${{ env.KubernetesVersion }}-00
         
       - name: publish kubernetes images
-        run: chmod +x ./app && ./app -v 2 --kubernetes-version v"${{ env.KubernetesVersion }}"
+        run: chmod +x ./app && ./app -v 2 --kubernetes-version v${{ env.KubernetesVersion }}
