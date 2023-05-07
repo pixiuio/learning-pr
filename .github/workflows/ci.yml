@@ -13,21 +13,15 @@ jobs:
 
       - name: apt-get update
         run: sudo apt-get update
-        
-      - name: install
-        run: sudo apt-get install -y apt-transport-https ca-certificates curl
-        
-      - name: culr
-        run: sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-   
-      - name: Kubernetes
-        run: echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
-      - name: dd
-        run: sudo apt-get update
-        
-      - name: install  
-        run: sudo apt-get install -y kubelet kubeadm kubectl
+      - name: install kubernetes repo
+        run: sudo apt-get install -y apt-transport-https ca-certificates curl && \
+             sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg && \
+             echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list && \
+             sudo apt-get update
+
+      - name: install kubeadm command
+        run: sudo apt-get install -y kubeadm
         
       - name: kubeadm
-        run: kubeadm version
+        run: kubeadm version -o json
