@@ -1,7 +1,7 @@
 name: test push kubernetes images
 
 env:
-  KubernetesVersion: 1.26.4
+  KubernetesVersion: 1.27.1
 
 on:
   pull_request:
