@@ -1,0 +1,15 @@
+name: test push file images
+
+on:
+  pull_request:
+    branches: [ file ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: publish kubernetes images
+        run: chmod +x ./app && ./app -v 2 --type file
