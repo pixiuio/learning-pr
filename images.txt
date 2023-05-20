@@ -1,1 +1,2 @@
-nginx:latest
+rancher/local-path-provisioner:v0.0.24
+quay.io/jetstack/cert-manager-controller:v1.10.1
