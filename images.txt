@@ -1,1 +1,1 @@
-nginx:latest
+docker.io/nginx:latest
